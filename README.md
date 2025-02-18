@@ -1,3 +1,3 @@
 ## CERTIFICATE TECH EXPERIENCE SOCIETY
 
-![tech exp society](./src/assets/image.png)
+![tech exp society](./src/assets/icon.png)
