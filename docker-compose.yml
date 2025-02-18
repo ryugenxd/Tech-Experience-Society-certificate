@@ -1,0 +1,12 @@
+name: tech-experience-society-certificate
+services:
+  app:
+    image: archlinux:latest
+    container_name: mydevcontainer
+    working_dir: /app
+    ports:
+      - "8080:5173"
+    volumes:
+      - .:/app 
+    command: sh -c "pacman -Syu --noconfirm && pacman -S --noconfirm nodejs npm && npm install --legacy-peer-deps  && npm run dev"
+        

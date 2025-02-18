@@ -5,8 +5,8 @@ import CertificateForm from '../components/CertificateForm';
 export default function CertificatePage() {
   const navigate = useNavigate();
 
-  const handleFormSubmit = (submittedName: string) => {
-    navigate('/generate', { state: { name: submittedName } });
+  const handleFormSubmit = (submittedName: string,submittedType: string) => {
+    navigate('/generate', { state: { name: submittedName,ty:submittedType } });
   };
 
   return (

@@ -7,7 +7,8 @@ export default function CertificateGenerate() {
   const navigate = useNavigate();
   const [progress, setProgress] = useState(0);
 
-  const name = location.state?.name || 'Unknown User';
+  const name = location.state?.name || 'Unknown Kisanak';
+  const ty = location.state?.ty || 'cert1';
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -16,7 +17,7 @@ export default function CertificateGenerate() {
         if (newProgress >= 100) {
           clearInterval(interval);
           setTimeout(() => {
-            navigate(`/preview`, { state: { name } });
+            navigate(`/preview`, { state: { name,ty } });
           }, 3000);
         }
         return newProgress;
@@ -26,7 +27,7 @@ export default function CertificateGenerate() {
     return () => {
       clearInterval(interval);
     };
-  }, [name, navigate]);
+  }, [name,ty, navigate]);
 
   return (
     <div className='flex flex-col items-center h-screen'>

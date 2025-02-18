@@ -20,7 +20,29 @@ export default function CertificatePreview() {
   const navigate = useNavigate();
   const certificateRef = useRef<HTMLDivElement>(null);
 
-  const name = location.state?.name || 'Unknown User';
+  const name = location.state?.name || 'Unknown Kisanak';
+  const ty = location.state?.ty || 'cert1';
+
+  const certificates = {
+  	cert1:{
+  		name:"Programmer trial & error",
+  		borderStyle:""
+  	},
+  	cert2:{
+  		name:"Master Ctrl+C Ctrl+V Programming",
+  		borderStyle:""
+  	},
+  	cert3:{
+  		name:"Tukang Debug Di Production",
+  		borderStyle:""
+  	},
+  	cert4:{
+  		name:"DevOps Ugal-Ugalan",
+  		borderStyle:""
+  	}
+  };
+
+  
 
   const handleDownloadPDF = async () => {
     if (certificateRef.current === null) return;
@@ -52,12 +74,15 @@ export default function CertificatePreview() {
           backgroundPosition: 'center',
         }}
       >
-        <div className='absolute inset-0 flex flex-col justify-center items-start p-8 sm:p-12 md:p-12 lg:p-12 text-[#24a5f4]'>
-          <h3 className='text-sm sm:text-md md:text-xl lg:text-2xl font-bold mb-12 sm:mb-16 md:mb-16 lg:mb-16'>
-            {name || 'Nama Pemalas'}
+        <div className='absolute inset-0  flex flex-col justify-center items-center p-8 sm:p-12 md:p-12 lg:p-12 text-[#fff]'>
+          <h3 className='text-sm  sm:text-md md:text-xl lg:text-2xl font-bold mb-12 sm:mb-16 md:mb-16 lg:mb-16'>
+            {name || 'Nama Kisanak'}
           </h3>
         </div>
-        <div className='absolute inset-0 flex flex-col justify-center items-start p-8 sm:p-12 md:p-12 lg:p-12  text-[#24a5f4]'>
+        <div className='absolute inset-0 flex flex-col justify-center items-center p-8 sm:p-12 md:p-12 lg:p-12 text-[#fff]'>
+        	<h3 className='text-sm  sm:text-md  md:text-xl lg:text-2xl font-bold mt-[5rem]'>{certificates[ty]["name"]}</h3>
+        </div>
+        <div className='absolute inset-0 flex flex-col justify-center items-start p-8 sm:p-12 md:p-12 lg:p-12  text-[#fff]'>
           <p className='text-[10px] sm:text-[10px] md:text-[10px] lg:text-[12px] font-bold mt-24 sm:mt-36 md:mt-36 lg:mt-36'>
             {getFormattedDate()}
           </p>
