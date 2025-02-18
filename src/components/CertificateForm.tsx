@@ -38,7 +38,7 @@ const CertificateForm: React.FC<CertificateFormProps> = ({ onSubmit }) => {
             <div className='grid w-full items-center gap-4'>
               <div className='flex flex-col space-y-1.5'>
               	<Label htmlFor='ty'>Jenis Sertifikat Kisanak</Label>
-              	<Select id="ty"  onValueChange={setTy} value={ty} required>
+              	<Select onValueChange={setTy} value={ty} required>
               	  <SelectTrigger>
               	    <SelectValue placeholder="Pilih Serfitikat Kisanak" />
               	  </SelectTrigger>

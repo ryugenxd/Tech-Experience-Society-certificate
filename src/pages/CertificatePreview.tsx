@@ -23,7 +23,7 @@ export default function CertificatePreview() {
   const name = location.state?.name || 'Unknown Kisanak';
   const ty = location.state?.ty || 'cert1';
 
-  const certificates = {
+  const certificates:any = {
   	cert1:{
   		name:"Programmer trial & error",
   		borderStyle:""
