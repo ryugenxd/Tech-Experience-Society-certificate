@@ -65,6 +65,7 @@ export default function CertificatePreview() {
 
   return (
     <div className='flex flex-col items-center h-screen'>
+      
       <div
         ref={certificateRef}
         className='relative bg-white w-full max-w-[595px] h-auto aspect-[595/421] text-center'
@@ -74,19 +75,22 @@ export default function CertificatePreview() {
           backgroundPosition: 'center',
         }}
       >
+        
+        
         <div className='absolute inset-0  flex flex-col justify-center items-center p-8 sm:p-12 md:p-12 lg:p-12 text-[#fff]'>
-          <h3 className='text-sm  sm:text-md md:text-xl lg:text-2xl font-bold mb-12 sm:mb-16 md:mb-16 lg:mb-16'>
+          <h3 className='text-sm font-bebas font-[400]  sm:text-md md:text-xl lg:text-2xl font-bold mb-12 sm:mb-16 md:mb-16 lg:mb-16'>
             {name || 'Nama Kisanak'}
           </h3>
         </div>
         <div className='absolute inset-0 flex flex-col justify-center items-center p-8 sm:p-12 md:p-12 lg:p-12 text-[#fff]'>
-        	<h3 className='text-sm  sm:text-md  md:text-xl lg:text-2xl font-bold mt-[5rem]'>{certificates[ty]["name"]}</h3>
+        	<h3 className='text-sm  sm:text-md  md:text-xl lg:text-2xl font-bold mt-[7rem] uppercase font-bebas font-[400]'>{certificates[ty]["name"]}</h3>
         </div>
-        <div className='absolute inset-0 flex flex-col justify-center items-start p-8 sm:p-12 md:p-12 lg:p-12  text-[#fff]'>
-          <p className='text-[10px] sm:text-[10px] md:text-[10px] lg:text-[12px] font-bold mt-24 sm:mt-36 md:mt-36 lg:mt-36'>
+        <div className='absolute inset-0 flex flex-col justify-end  items-start p-8 sm:p-12 md:p-12 lg:p-12  text-[#fff]'>
+          <p className='text-[10px] sm:text-[10px] md:text-[10px] lg:text-[12px] font-bold mt-[7rem] '>
             {getFormattedDate()}
           </p>
         </div>
+        
       </div>
       <div className='flex justify-between'>
         <Button

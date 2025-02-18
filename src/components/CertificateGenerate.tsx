@@ -31,7 +31,7 @@ export default function CertificateGenerate() {
 
   return (
     <div className='flex flex-col items-center h-screen'>
-      <h2 className='text-xl mb-4'>Memuat sertifikat kemalasan {name}...</h2>
+      <h2 className='text-xl mb-4'>Memuat sertifikat kisanak {name}...</h2>
       <Progress value={progress} className='w-full max-w-md' />
     </div>
   );
