@@ -15,7 +15,7 @@ import { achivements } from "@/constants/achivements";
 import { createSlug } from "@/utils/functions";
 
 interface CertificateFormProps {
-  onSubmit: (name: string, achivement: string) => void;
+  onSubmit: (name: string, achivement: string, graphImage: string) => void;
 }
 
 const CertificateForm: React.FC<CertificateFormProps> = ({ onSubmit }) => {
@@ -23,13 +23,16 @@ const CertificateForm: React.FC<CertificateFormProps> = ({ onSubmit }) => {
   const [achivement, setAchivement] = useState<string>(
     createSlug(achivements[0])
   );
+  const [graphImage, setGraphImage] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     localStorage.setItem("name", name);
     localStorage.setItem("achivement", achivement);
+    localStorage.setItem("graphImage", graphImage);
+    console.log({ name, achivement, graphImage });
 
-    onSubmit(name, achivement);
+    onSubmit(name, achivement, graphImage);
   };
 
   useEffect(() => {
@@ -46,6 +49,23 @@ const CertificateForm: React.FC<CertificateFormProps> = ({ onSubmit }) => {
           <form onSubmit={handleSubmit}>
             <div className="grid w-full items-center gap-4">
               <div className="flex flex-col space-y-1.5">
+                <Label htmlFor="graphImage">Custom Gambar</Label>
+                <Input
+                  id="graphImage"
+                  type="file"
+                  onChange={(e: any) => {
+                    const file = e.target?.files[0] || null;
+
+                    if (file) {
+                      const reader = new FileReader();
+
+                      reader.onload = function (e) {
+                        setGraphImage(e.target.result as string);
+                      };
+                      reader.readAsDataURL(file);
+                    }
+                  }}
+                />
                 <Label htmlFor="achivement">Jenis Sertifikat Kisanak</Label>
                 <Select
                   onValueChange={(value) => {

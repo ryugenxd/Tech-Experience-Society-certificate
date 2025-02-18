@@ -15,8 +15,9 @@ export default function CertificateGenerate() {
           setTimeout(() => {
             let name = localStorage.getItem("name");
             let achivement = localStorage.getItem("achivement");
+            let graphImage = localStorage.getItem("graphImage");
 
-            navigate(`/preview`, { state: { name, achivement } });
+            navigate(`/preview`, { state: { name, achivement, graphImage } });
           }, 3000);
         }
         return newProgress;
@@ -29,15 +30,9 @@ export default function CertificateGenerate() {
   }, [navigate]);
 
   return (
-<<<<<<< HEAD
-    <div className='flex flex-col items-center h-screen'>
-      <h2 className='text-xl mb-4'>Memuat sertifikat kisanak {name}...</h2>
-      <Progress value={progress} className='w-full max-w-md' />
-=======
     <div className="flex flex-col items-center h-screen">
       <h2 className="text-xl mb-4 capitalize">Memuat sertifikat kisanak ...</h2>
       <Progress value={progress} className="w-full max-w-md" />
->>>>>>> 1520108 (feat(certificate): implement dynamic achivements selection)
     </div>
   );
 }
