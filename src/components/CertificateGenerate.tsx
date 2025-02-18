@@ -15,8 +15,9 @@ export default function CertificateGenerate() {
           setTimeout(() => {
             let name = localStorage.getItem("name");
             let achivement = localStorage.getItem("achivement");
+            let graphImage = localStorage.getItem("graphImage");
 
-            navigate(`/preview`, { state: { name, achivement } });
+            navigate(`/preview`, { state: { name, achivement, graphImage } });
           }, 3000);
         }
         return newProgress;
