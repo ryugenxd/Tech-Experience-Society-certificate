@@ -78,12 +78,12 @@ export default function CertificatePreview() {
         
         
         <div className='absolute inset-0  flex flex-col justify-center items-center p-8 sm:p-12 md:p-12 lg:p-12 text-[#fff]'>
-          <h3 className='text-sm font-bebas font-[400]  sm:text-md md:text-xl lg:text-2xl font-bold mb-4 mt-[0.2rem'>
+          <h3 className='text-sm font-bebas font-[400]  sm:text-md md:text-xl lg:text-2xl font-bold mb-4 lg:mt-0 mt-[0.2rem'>
             {name || 'Nama Kisanak'}
           </h3>
         </div>
         <div className='absolute inset-0 flex flex-col justify-center items-center p-8 sm:p-12 md:p-12 lg:p-12 text-[#fff]'>
-        	<h3 className='text-sm  sm:text-md  md:text-xl lg:text-2xl font-bold mt-[4rem]  uppercase font-bebas font-[400]'>{certificates[ty]["name"]}</h3>
+        	<h3 className='text-sm  sm:text-md  md:text-xl lg:text-2xl font-bold mt-[4rem] lg:mt-[7rem] uppercase font-bebas font-[400]'>{certificates[ty]["name"]}</h3>
         </div>
         <div className='absolute inset-0 flex flex-col justify-end  items-start p-8 sm:p-12 md:p-12 lg:p-12  text-[#fff]'>
           <p className='text-[10px] sm:text-[10px] md:text-[10px] lg:text-[12px] font-bold mt-[7rem] '>
