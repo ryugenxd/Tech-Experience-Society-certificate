@@ -53,18 +53,18 @@ const CertificateForm: React.FC<CertificateFormProps> = ({ onSubmit }) => {
                 <Input
                   id="graphImage"
                   type="file"
-                  onChange={(e: any) => {
-                    const file = e.target?.files[0] || null;
-
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    const file = e.target.files?.[0];
+                  
                     if (file) {
                       const reader = new FileReader();
-
-                      reader.onload = function (e) {
-                        setGraphImage(e.target.result as string);
+                      reader.onload = (event) => {
+                        if (event.target?.result) {
+                          setGraphImage(event.target.result as string);
+                        }
                       };
                       reader.readAsDataURL(file);
-                    }
-                  }}
+                    }}}
                 />
                 <Label htmlFor="achivement">Jenis Sertifikat Kisanak</Label>
                 <Select
@@ -78,8 +78,8 @@ const CertificateForm: React.FC<CertificateFormProps> = ({ onSubmit }) => {
                     <SelectValue placeholder="Pilih Serfitikat Kisanak" />
                   </SelectTrigger>
                   <SelectContent>
-                    {achivements.map((achivement) => (
-                      <SelectItem value={createSlug(achivement)}>
+                    {achivements.map((achivement,index) => (
+                      <SelectItem key={index} value={createSlug(achivement)}>
                         {achivement}
                       </SelectItem>
                     ))}

@@ -20,11 +20,11 @@ const getFormattedDate = (): string => {
 };
 
 export default function CertificatePreview() {
-  const [name, setName] = useState<string>("unkown kisanak");
+  const [name, setName] = useState<string>(localStorage.getItem("name")||"unkown kisanak");
   const [achivement, setAchivement] = useState<string>(
-    createSlug(achivements[0])
+    localStorage.getItem("achivement")||createSlug(achivements[0])
   );
-  const [graphImage, setGraphImage] = useState<string>("");
+  const [graphImage, setGraphImage] = useState<string>(localStorage.getItem("graphImage")||"");
 
   const navigate = useNavigate();
   const certificateRef = useRef<HTMLDivElement>(null);
@@ -40,20 +40,7 @@ export default function CertificatePreview() {
     };
   });
 
-  useEffect(() => {
-    const _name = localStorage.getItem("name");
-    const _achivement = localStorage.getItem("achivement");
-    const _graphImage = localStorage.getItem("graphImage");
 
-    if (_name && _achivement && _graphImage) {
-      setName(name);
-      setAchivement(_achivement);
-      setGraphImage(_graphImage);
-    }
-
-    localStorage.removeItem("name");
-    localStorage.removeItem("achivement");
-  }, []);
 
   const handleDownloadPDF = async () => {
     if (certificateRef.current === null) return;
