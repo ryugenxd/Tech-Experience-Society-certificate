@@ -7,5 +7,6 @@ export const achivements: string[] = [
     "DevOps Ugal-Ugalan",
     "Cuman Bisa Make PHP",
     "Penjelajah Fesnuk",
+    "Kang ngehek Akun FB sendiri",
     "Cuman bisa liatin repo kisanak",
 ].map((achivement) => setCapitalize(achivement));

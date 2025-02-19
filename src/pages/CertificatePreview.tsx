@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState ,useEffect} from "react";
 import jsPDF from "jspdf";
 import { toJpeg } from "html-to-image";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ import DefaultImage from "../assets/aqua.png";
 import TopLayer from "../assets/top-layer.png";
 import { achivements } from "@/constants/achivements";
 import { createSlug } from "@/utils/functions";
+import Tong from "../assets/tong.png";
 
 const getFormattedDate = (): string => {
   const now = new Date();
@@ -24,7 +25,7 @@ export default function CertificatePreview() {
   const [achivement] = useState<string>(
     localStorage.getItem("achivement")||createSlug(achivements[0])
   );
-  const [graphImage] = useState<string>(localStorage.getItem("graphImage")||"");
+  const [graphImage,setGraphImage] = useState<string>(localStorage.getItem("graphImage")||"");
 
   const navigate = useNavigate();
   const certificateRef = useRef<HTMLDivElement>(null);
@@ -58,6 +59,30 @@ export default function CertificatePreview() {
     }
   };
 
+  useEffect(()=>{
+  	
+  	const convertToBase64 = async (image: string) => {
+	try {
+	    const response = await fetch(image);
+	    const blob = await response.blob();
+	    
+	    const reader = new FileReader();
+	    reader.onloadend = () => {
+	      setGraphImage(reader.result as string);
+	    };
+	    
+	    reader.readAsDataURL(blob);
+	  } catch (error) {
+	    console.error("Error converting image:", error);
+	  }
+	};
+
+  	switch(achivement){
+  		case createSlug(achivements[6]):
+  			convertToBase64(Tong);
+  			break;
+  	}
+  },[achivement,achivements,setGraphImage]);
   const handleDownloadImage = async () => {
     if (certificateRef.current === null) return;
 

@@ -6,7 +6,8 @@ services:
     working_dir: /app
     ports:
       - "8080:5173"
+      - "8081:8081"
     volumes:
       - .:/app 
-    command: sh -c "pacman -Syu --noconfirm && pacman -S --noconfirm nodejs npm && npm install --legacy-peer-deps  && npm run dev"
+    command: sh -c "pacman -Syu --noconfirm && pacman -S --noconfirm nodejs npm && npm install --legacy-peer-deps && npm install -g orion && (orion &) && exec npm run dev"
         
