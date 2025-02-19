@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import jsPDF from "jspdf";
 import { toJpeg } from "html-to-image";
 import { useNavigate } from "react-router-dom";
@@ -20,11 +20,11 @@ const getFormattedDate = (): string => {
 };
 
 export default function CertificatePreview() {
-  const [name, setName] = useState<string>(localStorage.getItem("name")||"unkown kisanak");
-  const [achivement, setAchivement] = useState<string>(
+  const [name] = useState<string>(localStorage.getItem("name")||"unkown kisanak");
+  const [achivement] = useState<string>(
     localStorage.getItem("achivement")||createSlug(achivements[0])
   );
-  const [graphImage, setGraphImage] = useState<string>(localStorage.getItem("graphImage")||"");
+  const [graphImage] = useState<string>(localStorage.getItem("graphImage")||"");
 
   const navigate = useNavigate();
   const certificateRef = useRef<HTMLDivElement>(null);
